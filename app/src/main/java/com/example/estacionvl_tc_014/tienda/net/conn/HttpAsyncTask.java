@@ -1,4 +1,4 @@
-package com.example.estacionvl_tc_014.tienda.net;
+package com.example.estacionvl_tc_014.tienda.net.conn;
 
 import android.os.AsyncTask;
 
@@ -7,30 +7,32 @@ import java.io.IOException;
 /**
  * Created by EstacionVL-TC-014 on 3/02/16.
  */
-public class HttpAsyncTask extends AsyncTask<String, Integer, String> {
+public class HttpAsyncTask extends AsyncTask<String, Integer, Response> {
 
     public static final int METHOD_GET = 0;
     public static final int METHOD_POST_FORM = 1;
     public static final int METHOD_POST_JSON = 2;
 
     public interface HttpI{
-        void onResponseReceived(String response);
+        void onResponseReceived(int requesCode, Response response);
     }
 
 
     int method;
     HttpI httpI;
+    int requestCode;
 
-    public HttpAsyncTask(int method, HttpI httpI){
+    public HttpAsyncTask(int method,int requestCode ,HttpI httpI){
         this.method = method;
         this.httpI = httpI;
+        this.requestCode = requestCode;
     }
 
     @Override
-    protected String doInBackground(String... params) {
+    protected Response doInBackground(String... params) {
 
         HttpConnection con = new HttpConnection();
-        String rta = null;
+        Response rta = null;
         try{
             switch (method){
                 case METHOD_GET:
@@ -51,7 +53,7 @@ public class HttpAsyncTask extends AsyncTask<String, Integer, String> {
     }
 
     @Override
-    protected void onPostExecute(String s) {
-        httpI.onResponseReceived(s);
+    protected void onPostExecute(Response s) {
+        httpI.onResponseReceived(requestCode,s);
     }
 }

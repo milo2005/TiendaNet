@@ -1,3 +1,7 @@
 <resources>
     <string name="app_name">Tienda</string>
+    <string name="url_base">http://10.0.2.2/tienda/public/index.php</string>
+    <string name="url_usuario_insert">/usuario</string>
+    <string name="url_usuario_all">/usuario</string>
+    <string name="url_usuario_id">/usuario/</string>
 </resources>

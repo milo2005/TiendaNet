@@ -1,4 +1,4 @@
-package com.example.estacionvl_tc_014.tienda.net;
+package com.example.estacionvl_tc_014.tienda.net.conn;
 
 import java.io.ByteArrayOutputStream;
 import java.io.DataOutputStream;

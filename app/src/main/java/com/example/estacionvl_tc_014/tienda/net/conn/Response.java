@@ -1,4 +1,4 @@
-package com.example.estacionvl_tc_014.tienda.net;
+package com.example.estacionvl_tc_014.tienda.net.conn;
 
 /**
  * Created by EstacionVL-TC-014 on 8/02/16.
